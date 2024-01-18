@@ -20,8 +20,8 @@ const event = new EventEmitter();
 
 // event.emit('sayMyName');
 
-event.on('checkPage',(st , msg)=> {
-    log(`statusCode : ${st} and page is ${msg}`);
-});
+// event.on('checkPage',(st , msg)=> {
+//     log(`statusCode : ${st} and page is ${msg}`);
+// });
 
-event.emit("checkPage",200,"ok");
+// event.emit("checkPage",200,"ok");
