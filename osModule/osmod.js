@@ -11,4 +11,4 @@ console.log(`Release : ${os.release()}`);
 console.log(`Temp Directory : ${os.tmpdir()}`);
 console.log(`Total Memory : ${os.totalmem()}`);
 console.log(`OS Type : ${os.type()}`);
-console.log(`OS Type : ${os.userInfo()}`);
+console.log(`User Info : ${os.userInfo()}`);
