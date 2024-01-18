@@ -1,4 +1,4 @@
-const {name ,add , sub , mult , div} = require('./oper')
+const {name,add , sub , mult , div} = require('./oper')
 
 console.log(name);
 console.log(add(5,5));
