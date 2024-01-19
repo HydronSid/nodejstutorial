@@ -13,20 +13,24 @@ server.on('request' , (req , res)=> {
     // });
 
     // With Stream
+    // const rStream = fs.createReadStream("siddhant.txt");
+    // lengthy Way
+    // rStream.on('data',(chunkData)=> {
+    //     res.write(chunkData);
+    // });
+
+    // rStream.on('end',(chunkData)=> {
+    //     res.end();
+    // });
+
+    // rStream.on('error',(err)=> {
+    //     log(err);
+    //     res.end("File Not Found");
+    // });
+
+    // 3rd Way 
     const rStream = fs.createReadStream("siddhant.txt");
-
-    rStream.on('data',(chunkData)=> {
-        res.write(chunkData);
-    });
-
-    rStream.on('end',(chunkData)=> {
-        res.end();
-    });
-
-    rStream.on('error',(err)=> {
-        log(err);
-        res.end("File Not Found");
-    });
+    rStream.pipe(res);
 });
 
 server.listen(8000 , "127.0.0.1");
