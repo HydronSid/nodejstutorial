@@ -1,20 +1,21 @@
-const http = require('http'); 
-const fs = require('fs'); 
-const url = require('url');
+import { createServer } from 'http'; 
+import { readFileSync } from 'fs'; 
+import { parse } from 'url';
+import slugify from 'slugify';
 const log = console.log;
 
-const replaceTemplate = require('./userApi/helper/replaceTemplate');
+import replaceTemplate from './userApi/helper/replaceTemplate';
 
-var tempOverview = fs.readFileSync(`${__dirname}/userApi/templates/template-overview.html`,"utf8");
-var tempCard = fs.readFileSync(`${__dirname}/userApi/templates/template-card.html`,"utf8");
-var tempProduct = fs.readFileSync(`${__dirname}/userApi/templates/template-product.html`,"utf8");
+var tempOverview = readFileSync(`${__dirname}/userApi/templates/template-overview.html`,"utf8");
+var tempCard = readFileSync(`${__dirname}/userApi/templates/template-card.html`,"utf8");
+var tempProduct = readFileSync(`${__dirname}/userApi/templates/template-product.html`,"utf8");
 
-var data = fs.readFileSync(`${__dirname}/userApi/data.json`,"utf8");
+var data = readFileSync(`${__dirname}/userApi/data.json`,"utf8");
 var dataObj = JSON.parse(data);
-
-const server = http.createServer((req , res)=> {
+//log(slugify("Siddhant Mestry",{lowercase : true}));
+const server = createServer((req , res)=> {
     
-    const  {query , pathname} =  url.parse(req.url, true);;
+    const  {query , pathname} =  parse(req.url, true);;
     // Overview Page
     if(pathname == "/" || pathname == "/overview"){
         res.writeHead(200,{"Content-type":"text/html"});
